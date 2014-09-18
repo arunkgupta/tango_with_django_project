@@ -1,7 +1,16 @@
 from django.http import HttpResponse
+from django.template import RequestContext
+from django.shortcuts import render_to_response
 
 def index(request):
-    return HttpResponse("Rango Says: Hello World! <a href='rango/about'>about</a>")
+    # Requesting context of request to inputting in context
+    context = RequestContext(request)
+    
+    # Setting up context_dict dictionary variable for template variable
+    context_dict = {'boldmessage': "I am bold font from the context"}
+    
+    # returning response to client browser using template as first parameter
+    return render_to_response('rango/index.html', context_dict, context)
 
 def about(request):
     return HttpResponse("About Us page ! <a href='/rango/'>Back to home</a>")
