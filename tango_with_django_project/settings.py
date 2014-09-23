@@ -159,3 +159,6 @@ LOGGING = {
         },
     }
 }
+
+# Url redirected for unathourized acces
+Login_URL = '/rango/login/'
